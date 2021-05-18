@@ -1,6 +1,6 @@
-import Department from './05_classes_interfaces/Department'
-import ITDepartment from './05_classes_interfaces/ITDepartment'
-import AccountingDepartment from './05_classes_interfaces/AccountingDepartment'
+import Department from './Department'
+import ITDepartment from './ITDepartment'
+import AccountingDepartment from './AccountingDepartment'
 
 
 const employee1 = Department.createEmployee('Noah');
