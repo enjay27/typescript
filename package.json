@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "lite-server"
+    "start": "webpack serve --mode development --env development --inline --progress --config webpack.config.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -14,7 +15,14 @@
   "author": "Noah Kyu <kdkm2002@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "lite-server": "^2.6.1"
+    "@types/lodash": "^4.14.169",
+    "html-webpack-plugin": "^5.3.1",
+    "lite-server": "^2.6.1",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "express": "^4.17.1"
