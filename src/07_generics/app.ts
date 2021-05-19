@@ -40,7 +40,7 @@ function extractAndConvert<T extends object, U extends keyof T>(obj: T, key: U) 
 
 extractAndConvert({ name: 'Noah' }, 'name');
 
-class DataStorage<T> {
+class DataStorage<T extends string | number | boolean> {
     private data: T[] = [];
 
     addItem(item: T) {
@@ -48,7 +48,7 @@ class DataStorage<T> {
     }
 
     removeItem(item: T) {
-        if(this.data.indexOf(item) === -1) {
+        if (this.data.indexOf(item) === -1) {
             return;
         }
         this.data.splice(this.data.indexOf(item), 1);
@@ -67,8 +67,25 @@ console.log(textStorage.getItems());
 
 const numberStorage = new DataStorage<number>();
 
-const objStorage = new DataStorage<object>();
-objStorage.addItem({name: 'Noah'});
-objStorage.addItem({name: 'Max'});
-objStorage.removeItem({name: 'Noah'});
-console.log(objStorage.getItems());
+// const objStorage = new DataStorage<object>();
+// objStorage.addItem({name: 'Noah'});
+// objStorage.addItem({name: 'Max'});
+// objStorage.removeItem({name: 'Noah'});
+// console.log(objStorage.getItems());
+
+interface CourseGoal {
+    title: string;
+    description: string;
+    completeUntil: Date;
+}
+
+function createCourseGoal(title: string, description: string, completeUntil: Date): CourseGoal {
+    let courseGoal: Partial<CourseGoal> = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = completeUntil;
+    return courseGoal as CourseGoal;
+}
+
+const readonlyNames: Readonly<string[]> = ['Noah', 'Anna'];
+// readonlyNames.push();
