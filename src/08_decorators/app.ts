@@ -143,7 +143,7 @@ function PositiveNumber(target: any, propName: string) {
 	};
 }
 
-function validate(obj: any) {
+function dec_validate(obj: any) {
 	const objValidatorConfig = registeredValidators[obj.constructor.name];
 	if(!objValidatorConfig) {
 		return true;
@@ -184,7 +184,7 @@ courseForm.addEventListener('submit', event => {
 
 	const createdCourse = new Course(title, price);
 
-	if(!validate(createdCourse)){
+	if(!dec_validate(createdCourse)){
 		alert('Invalid input, please try again!');
 		return;
 	}
