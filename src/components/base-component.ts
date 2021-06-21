@@ -1,6 +1,6 @@
 
 // Component Base Class
-export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
+export default abstract class Component<T extends HTMLElement, U extends HTMLElement> {
     templateElement: HTMLTemplateElement;
     hostElement: T;
     element: U;
@@ -16,16 +16,20 @@ export abstract class Component<T extends HTMLElement, U extends HTMLElement> {
         )! as HTMLTemplateElement;
         this.hostElement = document.getElementById(hostElementId)! as T;
 
-        const importedNode = document.importNode(
-            this.templateElement.content,
-            true
-        );
+        const importedNode = this.newMethod();
         this.element = importedNode.firstElementChild as U;
         if (newElementId) {
             this.element.id = newElementId;
         }
 
         this.attach(insertAtStart);
+    }
+
+    private newMethod() {
+        return document.importNode(
+            this.templateElement.content,
+            true
+        );
     }
 
     private attach(insertAtBeginning: boolean) {
