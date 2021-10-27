@@ -1,10 +1,9 @@
 import 'reflect-metadata';
 
 import _ from 'lodash';
-// import { plainToClass } from '../node_modules/class-transformer/types/index';
 import { Product } from './product.model';
-
 import { plainToClass } from 'class-transformer';
+import { validate } from 'class-validator';
 
 const products = [
     {
@@ -16,6 +15,18 @@ const products = [
         price: 10.99
     }
 ];
+
+const newProd = new Product('', -5.99);
+validate(newProd).then(errors => {
+    if (errors.length > 0) {
+        console.log('Validation Errors!');
+        console.log(errors);        
+    } else {
+        console.log(newProd.getInformation());
+    }
+});
+
+
 
 // const p1 = new Product('A Book', 12.99);
 
