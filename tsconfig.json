@@ -3,10 +3,14 @@
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "CommonJS",
     "target": "es5",
     "allowJs": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "esModuleInterop": true                   /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
   },
-  "files": ["src/app.ts"]
+  "files": ["src/app.ts"],
+  "exclude": [
+    "node_modules" // would be the default
+  ]
 }
