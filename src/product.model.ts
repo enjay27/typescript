@@ -15,5 +15,5 @@ export class Product {
     
     getInformation() {
         return [this.title, `$${this.price}`];
-    }
+    } 
 }
